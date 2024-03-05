@@ -14,8 +14,11 @@ float pd_control(float pos,
                  float Kp,
                  float Kd)
 {
-  return 0.0; // YOUR CODE HERE
-}
+//reach position and the velocity should be 0 exactly at the position
+  float pos_err = target - pos;
+  float v_err = -1 * vel;
+  return Kp * pos_err + Kd * v_err;
+  }
 
 /* Sanitize current command to make it safer.
 
